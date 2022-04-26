@@ -526,11 +526,15 @@ public class MainActivity extends AppCompatActivity {
         myWebView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
-                int height = (int) Math.floor(myWebView.getContentHeight() * myWebView.getScale());
-                int webViewHeight = myWebView.getHeight();
-                int cutoff = height - webViewHeight; // Don't be too strict on the cutoff point
-                if (i1 >= cutoff) {
-                    Toast.makeText(getBaseContext(),"Scroll View bottom reached",Toast.LENGTH_SHORT).show();
+//                int height = (int) Math.floor(myWebView.getContentHeight() * myWebView.getScale());
+//                int webViewHeight = myWebView.getHeight();
+//                int cutoff = height - webViewHeight; // Don't be too strict on the cutoff point
+//                if (i1 >= cutoff) {
+//                    Toast.makeText(getBaseContext(),"Scroll View bottom reached",Toast.LENGTH_SHORT).show();
+//                    myWebView.evaluateJavascript(scriptTest, null);
+//                }
+                if(!myWebView.canScrollVertically(1)){
+//                    Toast.makeText(getBaseContext(),"Scroll View bottom reached",Toast.LENGTH_SHORT).show();
                     myWebView.evaluateJavascript(scriptTest, null);
                 }
             }
